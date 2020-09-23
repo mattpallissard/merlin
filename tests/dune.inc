@@ -311,10 +311,12 @@
 
 (alias
  (name destruct-issue596)
+ (package merlin)
  (deps (:t ./test-dirs/destruct/issue596.t)
        (source_tree ./test-dirs/destruct)
        %{bin:ocamlmerlin}
-       %{bin:ocamlmerlin-server})
+       %{bin:ocamlmerlin-server}
+       %{bin:dot-merlin-reader})
  (action
    (chdir ./test-dirs/destruct
      (setenv MERLIN %{exe:merlin-wrapper}
