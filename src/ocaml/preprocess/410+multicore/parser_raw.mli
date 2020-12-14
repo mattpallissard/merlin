@@ -103,6 +103,7 @@ type token =
   | EOF
   | END
   | ELSE
+  | EFFECT
   | DOWNTO
   | DOTTILDE
   | DOTOP of (string)
@@ -266,6 +267,7 @@ module MenhirInterpreter : sig
     | T_EOF : unit terminal
     | T_END : unit terminal
     | T_ELSE : unit terminal
+    | T_EFFECT : unit terminal
     | T_DOWNTO : unit terminal
     | T_DOTTILDE : unit terminal
     | T_DOTOP : (string) terminal
@@ -473,6 +475,11 @@ module MenhirInterpreter : sig
     | N_extension : (Parsetree.extension) nonterminal
     | N_ext : (string Location.loc option) nonterminal
     | N_expr : (Parsetree.expression) nonterminal
+    | N_effect_declaration : (Parsetree.effect_constructor) nonterminal
+    | N_effect_core_type_list : (Parsetree.core_type list) nonterminal
+    | N_effect_constructor_rebind : (Parsetree.effect_constructor) nonterminal
+    | N_effect_constructor_declaration : (Parsetree.effect_constructor) nonterminal
+    | N_effect_constructor_arguments : (Parsetree.core_type list * Parsetree.core_type) nonterminal
     | N_direction_flag : (Asttypes.direction_flag) nonterminal
     | N_core_type : (Parsetree.core_type) nonterminal
     | N_constructor_declarations : (Parsetree.constructor_declaration list) nonterminal
