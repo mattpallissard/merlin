@@ -284,6 +284,7 @@ let is_intf_keyword = function
   | "do"
   | "done"
   | "downto"
+  | "effect"
   | "else"
   | "false"
   | "for"
